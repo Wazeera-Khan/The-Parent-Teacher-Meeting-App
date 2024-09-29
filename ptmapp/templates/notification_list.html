@@ -1,0 +1,13 @@
+{% extends "dashboard.html" %}
+{% block content %}
+  <h2>Notifications</h2>
+  <ul>
+    {% for notification in notifications %}
+      <li>
+        <a href="{% url 'parent_response_form'  %}">{{ notification.title }}</a>
+        <p>{{ notification.description }}</p>
+        <p>{{ notification.meeting_datetime }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

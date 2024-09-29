@@ -1,0 +1,15 @@
+<!-- create_notification.html -->
+
+{% extends 'dashboard.html' %}
+{% block content %}
+<div class="container">
+    <h2>Create Notification</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Create Notification</button>
+    </form>
+</div>
+{% endblock %}
+
+

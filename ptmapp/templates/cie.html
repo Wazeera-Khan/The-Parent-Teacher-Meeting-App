@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<style>
+    /* Add any additional styling specific to your cie.html here */
+    
+</style>
+<h2>CIE Marks</h2>
+<br>
+<div class="cie-marks">
+    <b>Name: {{ name }}</b><br>
+    <b>USN: {{ usn }}</b>
+    <table style="padding: 2px;" border="border">
+        <tr>
+            <th>Subject Code</th>
+            <th>CIE 1</th>
+            <th>CIE 2</th>
+            <th>CIE 3</th>
+        </tr>
+        {% for cie_record in cie_records %}
+        <tr>
+            <td>{{ cie_record.subject_code }}</td>
+            <td>{{ cie_record.cie1 }}</td>
+            <td>{{ cie_record.cie2 }}</td>
+            <td>{{ cie_record.cie3 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

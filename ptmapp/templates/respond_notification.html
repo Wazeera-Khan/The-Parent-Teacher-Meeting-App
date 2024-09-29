@@ -1,0 +1,21 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+<form method="POST" action="{% url 'save_response' %}">
+
+  {% for notification in notifications %}
+    <h2>{{ notification.title }}</h2>
+    <p>{{ notification.description }}</p>
+    <p>Meeting Date and Time: {{ notification.meeting_datetime }}</p>
+    <form method="POST" action="{% url 'notification_list' %}">
+      {% csrf_token %}
+      <p>Your Response:</p>
+      <input type="radio" id="Accept" name="response" value="1">
+      <label for="Accept">Accept</label><br> 
+      <input type="radio" id="Decline" name="response" value="0">
+      <label for="Decline">Decline</label><br>
+        
+      <button type="submit">Submit</button>
+    </form>
+  {% endfor %}
+{% endblock %}

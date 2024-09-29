@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block pgnme %}
+<p>Welcome, Choose from the following </p>
+{% endblock %}
+
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  <label for="semdropdown">Select Semester: </label>
+  <div class="input_box"> 
+    <select name="semester" id="drp" required>
+      <option value="1">I</option>
+      <option value="2">II</option>
+      <option value="3">III</option>
+      <option value="4">IV</option>
+      <option value="5">V</option>
+      <option value="6">VI</option>
+      <option value="7">VII</option>
+      <option value="8">VIII</option>
+    </select>
+  </div>
+  <div class="alert">
+    {% if error_message %}
+    <div class="error">
+      <p>{{ error_message }}</p>
+    </div>
+    {% endif %}
+
+  </div>
+ 
+  <div class="reg_btn">
+    <input type="submit" value="Go !">
+  </div>
+</form>
+{% endblock %}

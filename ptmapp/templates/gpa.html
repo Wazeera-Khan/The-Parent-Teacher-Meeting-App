@@ -1,0 +1,42 @@
+{% extends 'dashboard.html' %}
+
+{% block content %}
+    <style>
+        table{
+            text-align: center;
+            align-items: center;
+            /* margin-left: 100px; */
+        }
+       
+    </style>
+
+    <h3>GPA Records</h3>
+
+    <p>Name: {{ name }}</p>
+    <p>USN: {{ usn }}</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Semester</th>
+                <th>GPA</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in gpa_records %}
+            <tr>
+                <td>{{ record.semester }}</td>
+                <td>{{ record.gpa }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No GPA records found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if average_gpa %}
+    <p>Average GPA: {{ average_gpa }}</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "dashboard.html" %}
+{% block content %}
+  <h2>{{ notification.title }}</h2>
+  <p>{{ notification.description }}</p>
+  <p>{{ notification.meeting_datetime }}</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit" name="response" value="accept">Accept</button>
+    <button type="submit" name="response" value="decline">Decline</button>
+  </form>
+{% endblock %}

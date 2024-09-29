@@ -1,0 +1,29 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+    <style>
+        /* Add any specific styles for attendance page if needed */
+    </style>
+    
+    <h2>Attendance Records</h2>
+    <br>
+    <div class="attendance">
+        <b>Name: {{ student_detail.name }}</b><br>
+        <b>USN: {{ student_detail.usn }}</b>
+        <table style="padding: 2px;" border="border">
+            <tr>
+                <th>Subject Code</th>
+                <th>Attendance (in %)</th>
+            </tr>
+            {% for attendance in attendances %}
+            <tr>
+                <td>{{ attendance.subject_code }}</td>
+                <td>{{ attendance.attendance_percentage }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">No attendance records found.</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
